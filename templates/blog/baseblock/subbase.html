@@ -1,0 +1,20 @@
+{% extends "blog/baseblock/base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'blog/css/sub.css' %}">
+{% endblock %}
+{% block script %}{% endblock %}
+
+{% block middle_box %}
+  <div class="container">
+    <div class="con_content">
+      <div class="about_box">
+{#        <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">信息浏览</a></span><b>个人简介</b></h2>#}
+        {% block content_box %}{% endblock %}
+      </div>
+    </div>
+    <div class="blank"></div>
+  <!-- container代码 结束 -->
+  </div>
+{% endblock %}

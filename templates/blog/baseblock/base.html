@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}{% endblock %}</title>
+<meta name="keywords" content="个人博客模板古典系列之――江南墨卷" />
+<meta name="description" content="个人博客模板古典系列之――江南墨卷" />
+<link href="{% static 'blog/css/base.css' %}" rel="stylesheet">
+{% block css %}{% endblock %}
+<!--[if lt IE 9]>
+<script src="{% static 'blog/js/modernizr.js' %}"></script>
+<![endif]-->
+<script type="text/javascript" src="{% static 'blog/js/jquery.js' %}"></script>
+{% block script %}{% endblock %}
+</head>
+<body>
+<div id="wrapper">
+  {% include "blog/baseblock/header.html" %}
+
+  {% block middle_box %}{% endblock %}
+
+  {% include "blog/baseblock/footer.html" %}
+</div>
+</body>
+</html>

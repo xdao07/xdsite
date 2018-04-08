@@ -1,0 +1,42 @@
+<header>
+    <div class="headtop"></div>
+    <div class="contenttop">
+      <div class="logo f_l">个人博客模板古典系列之――江南墨卷</div>
+      <div class="blank"></div>
+      <nav>
+        <div  class="navigation">
+          <ul class="menu">
+            <li><a href="{% url 'blog:home' %}">网站首页</a></li>
+            <li><a href="#">技术杂谈</a>
+              <ul>
+                <li><a href="{% url 'blog:articlelist' %}">编程开发</a></li>
+                <li><a href="{% url 'blog:articlelist' %}">数据库</a></li>
+                <li><a href="{% url 'blog:articlelist' %}">Linux运维</a></li>
+                <li><a href="{% url 'blog:articlelist' %}">安全</a></li>
+                <li><a href="{% url 'blog:articlelist' %}">其它</a></li>
+              </ul>
+            </li>
+            <li><a href="#">生活随笔</a>
+              <ul>
+                <li><a href="{% url 'blog:articlelist' %}">个人日记</a></li>
+                <li><a href="{% url 'blog:articlelist' %}">思维导图</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'blog:aboutme' %}">关于自己</a> </li>
+            <li><a href="{% url 'blog:messageme' %}">给我留言</a> </li>
+          </ul>
+        </div>
+      </nav>
+      <SCRIPT type=text/javascript>
+	// Navigation Menu
+	$(function() {
+		$(".menu ul").css({display: "none"}); // Opera Fix
+		$(".menu li").hover(function(){
+			$(this).find('ul:first').css({visibility: "visible",display: "none"}).slideDown("normal");
+		},function(){
+			$(this).find('ul:first').css({visibility: "hidden"});
+		});
+	});
+</SCRIPT> 
+    </div>
+</header>
