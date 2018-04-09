@@ -2,14 +2,19 @@
   <div class="tuwen">
     <h3 class="tit">图文推荐</h3>
     <ul>
-      <li><a href="/"><img src="{% static 'blog/images/01.jpg' %}"><b>住在手机里的朋友</b></a>
-        <p><span class="tulanmu"><a href="/">手机配件</a></span><span class="tutime">2015-02-15</span></p>
-      </li>
-      <li><a href="/"><img src="{% static 'blog/images/02.jpg' %}"><b>教你怎样用欠费手机拨打电话</b></a>
-        <p><span class="tulanmu"><a href="/">手机配件</a></span><span class="tutime">2015-02-15</span></p>
-      </li>
-      <li><a href="/"><img src="{% static 'blog/images/06.jpg' %}"><b>住在手机里的朋友</b></a>
-        <p><span class="tulanmu"><a href="/">手机配件</a></span><span class="tutime">2015-02-15</span></p>
-      </li>
+        {% for article in recommend_articles %}
+        <li><a href="#" title="{{ article.title }}"><img src="{{ article.picture.url }}"><b>{{ article.title | truncatechars:18 }}</b></a>
+          <p><span class="tulanmu"><a href="#">{{ article.category.name }}</a></span><span class="tutime">{{ article.publish | date:'Y-m-d' }}</span></p>
+        </li>
+        {% endfor %}
+{#      <li><a href="/"><img src="{% static 'blog/images/01.jpg' %}"><b>住在手机里的朋友</b></a>#}
+{#        <p><span class="tulanmu"><a href="/">手机配件</a></span><span class="tutime">2015-02-15</span></p>#}
+{#      </li>#}
+{#      <li><a href="/"><img src="{% static 'blog/images/02.jpg' %}"><b>教你怎样用欠费手机拨打电话</b></a>#}
+{#        <p><span class="tulanmu"><a href="/">手机配件</a></span><span class="tutime">2015-02-15</span></p>#}
+{#      </li>#}
+{#      <li><a href="/"><img src="{% static 'blog/images/06.jpg' %}"><b>住在手机里的朋友</b></a>#}
+{#        <p><span class="tulanmu"><a href="/">手机配件</a></span><span class="tutime">2015-02-15</span></p>#}
+{#      </li>#}
     </ul>
   </div>
