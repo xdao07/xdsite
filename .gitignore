@@ -102,3 +102,6 @@ ENV/
 .idea/
 db.sqlite3
 blog/migrations/
+db_xdblog.sql
+uploads/
+

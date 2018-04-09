@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'xdsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_xdsite',
+        'NAME': 'db_xdblog',
         'HOST': '192.168.100.1',
         'PORT': '3306',
         'USER': 'webapp',
@@ -126,3 +126,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')    # 指定静态文件存放目录
 ]
+
+# 媒体文件配置
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+# 允许上传文件类型['jpg', 'png', 'jpeg']
+ALLOW_SUFFIX = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'txt', 'html']
