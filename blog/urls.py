@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.views.generic import TemplateView   # 通用视图，可直接将静态映射为视图函数
-from  . import views
+from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='home'),
@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^article-list/(tag)/(?P<tag_id>\d+)/(?P<page>\d)/$', views.article_list, name='article_list'),
     url(r'^aboutme/$', TemplateView.as_view(template_name='blog/aboutme.html'), name='aboutme'),
     url(r'^messageme/$', TemplateView.as_view(template_name='blog/messageme.html'), name='messageme'),
+    # 通过指定路由到指定视图将执行同步函数
+    url(r'^sync-hits-cache-to-db/$', views.sync_hits_cache_to_db, name='sync_hits_cache_to_db'),
 ]
