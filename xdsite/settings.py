@@ -139,9 +139,9 @@ ALLOW_SUFFIX = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'txt', 'html']
 自定义变量
 """
 # 导航【技术杂谈】分类id列表
-NAV_JSZT_CATEGORY = (1, 2, 3, 4, 7, 8)
+NAV_JSZT_CATEGORY = (1, 2, 3, 4, 5)
 # 导航【生活随笔】分类id列表
-NAV_SHSB_CATEGORY = (5, 6)
+NAV_SHSB_CATEGORY = (7, 6)
 # 分页，每页显示记录条数
 PER_PAGE = 2
 

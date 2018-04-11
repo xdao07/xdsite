@@ -1,20 +1,12 @@
 {% extends "blog/baseblock/subbase.html" %}
 {% load staticfiles %}
 
-{% block title %}文章列表{% endblock %}
+{% block title %}【{{ category.name }}】文章列表{% endblock %}
 
 {% block content_box %}
-    <h2 class="nh1"><span>您现在的位置是：<a href="/">网站首页</a>>><a href="{% url 'blog:articlelist' %}">技术文章</a></span><b>技术文章</b></h2>
     <div class="bloglist f_l">
       {% include "blog/baseblock/list.html" %}
-      <div class="blank"></div>
-      <div class="pagelist">
-        页次：1/5&nbsp;
-        每页：2&nbsp;总数：9&nbsp;<a href="#">首页</a>
-        <a href="#">上一页</a>
-        <a href="#">下一页</a>
-        <a href="#">尾页</a>
-      </div>
+      {% include "blog/baseblock/paginator.html" %}
     </div>
     <div class="r_box f_r">
       {% include "blog/baseblock/photorecommend.html" %}

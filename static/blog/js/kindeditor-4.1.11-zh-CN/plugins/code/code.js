@@ -24,13 +24,19 @@ KindEditor.plugin('code', function(K) {
 				'<option value="pl">Perl</option>',
 				'<option value="py">Python</option>',
 				'<option value="rb">Ruby</option>',
+				//'<option value="ruby">Ruby</option>',
 				'<option value="java">Java</option>',
 				'<option value="vb">ASP/VB</option>',
 				'<option value="cpp">C/C++</option>',
 				'<option value="cs">C#</option>',
+				//'<option value="csharp">C#</option>',
 				'<option value="xml">XML</option>',
 				'<option value="bsh">Shell</option>',
+				//'<option value="bash">Shell</option>',
 				'<option value="">Other</option>',
+				//SyntaxHighlighter增加
+				//'<option value="sql">SQL</option>',
+				//'<option value="scala">Scala</option>',
 				'</select>',
 				'</div>',
 				'<textarea class="ke-textarea" style="width:408px;height:260px;"></textarea>',
@@ -46,7 +52,8 @@ KindEditor.plugin('code', function(K) {
 						var type = K('.ke-code-type', dialog.div).val(),
 							code = textarea.val(),
 							cls = type === '' ? '' :  ' lang-' + type,
-							html = '<pre class="prettyprint' + cls + '">\n' + K.escape(code) + '</pre> ';
+							html = '<pre class=" linenums' + cls + '">\n' + K.escape(code) + '</pre> ';
+							//html = '<pre class="brush:' + type + '">\n' + K.escape(code) + '</pre> ';
 						if (K.trim(code) === '') {
 							alert(lang.pleaseInput);
 							textarea[0].focus();

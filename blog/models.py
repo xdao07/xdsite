@@ -63,7 +63,7 @@ class Article(models.Model):
 
     # 获取文章详情链接URL
     def get_absolute_url(self):
-        return reverse('blog:article_detail', args=[self.id, self.slug])
+        return reverse('blog:article_detail', args=[self.id, self.slug])    # reverse()函数通过url别名返回对应的url路径
 
     def __str__(self):
         return "【{0}】 {1}".format(self.category.name, self.title)

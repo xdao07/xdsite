@@ -10,7 +10,7 @@
             <li><a href="#">技术杂谈</a>
               <ul>
                   {% for nav_jszt in nav_jszt_category %}
-                  <li><a href="#">{{ nav_jszt.name }}</a></li>
+                  <li><a href="{% url 'blog:article_list' nav_jszt.id %}">{{ nav_jszt.name }}</a></li>
                   {% endfor %}
 {#                <li><a href="{% url 'blog:articlelist' %}">编程开发</a></li>#}
 {#                <li><a href="{% url 'blog:articlelist' %}">数据库</a></li>#}
@@ -22,7 +22,7 @@
             <li><a href="#">生活随笔</a>
               <ul>
                   {% for nav_shsb in nav_shsb_category %}
-                  <li><a href="#">{{ nav_shsb.name }}</a></li>
+                  <li><a href="{% url 'blog:article_list' nav_shsb.id %}">{{ nav_shsb.name }}</a></li>
                   {% endfor %}
 {#                <li><a href="{% url 'blog:articlelist' %}">个人日记</a></li>#}
 {#                <li><a href="{% url 'blog:articlelist' %}">思维导图</a></li>#}
