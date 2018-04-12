@@ -30,12 +30,10 @@ class ArticleAdmin(admin.ModelAdmin):
 
     # 将指定的静态素材应用于当前表单中
     class Media:
-        css = {
-            'all': ('/static/blog/js/kindeditor-4.1.11-zh-CN/plugins/code/prettify.css',),
-        }
+        css = {}
         js = (
             '/static/blog/js/kindeditor-4.1.11-zh-CN/kindeditor-all-min.js',
-            '/static/blog/js/kindeditor-4.1.11-zh-CN/plugins/code/prettify.js',
+            '/static/blog/js/kindeditor-4.1.11-zh-CN/plugins/code/code.js',   # 覆盖kindeditor-all-min.js中的相同部分
             '/static/blog/js/kindeditor-4.1.11-zh-CN/config.js',
             '/static/blog/js/kindeditor-4.1.11-zh-CN/lang/zh-CN.js',
         )

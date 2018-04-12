@@ -2,9 +2,16 @@
 {% load staticfiles %}
 
 {% block title %}{{ article.title }}{% endblock %}
+{% block css %}
+    {{ block.super }} {#获取父模板的内容#}
+    <link type="text/css" rel="stylesheet" href="{% static 'syntaxheighlighter/styles/shCore.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'syntaxheighlighter/styles/shThemeDefault.css' %}"/>
+{% endblock %}
+
 {% block script %}
-<link type="text/css" rel="stylesheet" href="{% static 'blog/js/kindeditor-4.1.11-zh-CN/plugins/code/prettify.css' %}">
-<script type="text/javascript" src="{% static 'blog/js/kindeditor-4.1.11-zh-CN/plugins/code/prettify.js' %}"></script>
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'syntaxheighlighter/scripts/shCore.js' %}"></script>
+    <script type="text/javascript" src="{% static 'syntaxheighlighter/scripts/shAutoloader.js' %}"></script>
 {% endblock %}
 
 {% block content_box %}
@@ -24,5 +31,32 @@
         <!-- 可用于内容模板 --> 
         
         <!-- container代码 结束 -->
-<script type="text/javascript">prettyPrint();</script>
+<script type="text/javascript">
+SyntaxHighlighter.autoloader(
+    "as3 actionscript3      {% static 'syntaxheighlighter/scripts/shBrushAS3.js' %}",
+    "bash shell     {% static 'syntaxheighlighter/scripts/shBrushBash.js' %}",
+    "cf coldfusion  {% static 'syntaxheighlighter/scripts/shBrushColdFusion.js' %}",
+    "c-sharp csharp {% static 'syntaxheighlighter/scripts/shBrushCSharp.js' %}",
+    "cpp c  {% static 'syntaxheighlighter/scripts/shBrushCpp.js' %}",
+    "css    {% static 'syntaxheighlighter/scripts/shBrushCss.js' %}",
+    "delphi pas pascal      {% static 'syntaxheighlighter/scripts/shBrushDelphi.js' %}",
+    "diff patch     {% static 'syntaxheighlighter/scripts/shBrushDiff.js' %}",
+    "erl erlang     {% static 'syntaxheighlighter/scripts/shBrushErlang.js' %}",
+    "groovy {% static 'syntaxheighlighter/scripts/shBrushGroovy.js' %}",
+    "js jscript javascript  {% static 'syntaxheighlighter/scripts/shBrushJScript.js' %}",
+    "java   {% static 'syntaxheighlighter/scripts/shBrushJava.js' %}",
+    "jfx javafx     {% static 'syntaxheighlighter/scripts/shBrushJavaFX.js' %}",
+    "perl pl        {% static 'syntaxheighlighter/scripts/shBrushPerl.js' %}",
+    "php    {% static 'syntaxheighlighter/scripts/shBrushPhp.js' %}",
+    "plain text     {% static 'syntaxheighlighter/scripts/shBrushPlain.js' %}",
+    "ps powershell  {% static 'syntaxheighlighter/scripts/shBrushPowerShell.js' %}",
+    "py python      {% static 'syntaxheighlighter/scripts/shBrushPython.js' %}",
+    "rails ror ruby {% static 'syntaxheighlighter/scripts/shBrushRuby.js' %}",
+    "scala  {% static 'syntaxheighlighter/scripts/shBrushScala.js' %}",
+    "sql    {% static 'syntaxheighlighter/scripts/shBrushSql.js' %}",
+    "vb vbnet       {% static 'syntaxheighlighter/scripts/shBrushVb.js' %}",
+    "xml xhtml xslt html xhtml      {% static 'syntaxheighlighter/scripts/shBrushXml.js' %}"
+);
+SyntaxHighlighter.all();
+</script>
 {% endblock %}

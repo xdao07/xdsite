@@ -16,7 +16,8 @@
 }
 .about_content p {
 	margin-bottom: 15px;
-	text-indent: 2em
+	/*text-indent: 2em*/
+	/*文章详情页内容缩进2字符，比syntaxhighlighter的css位置效果多余*/
 }
 .about_content p img {
 	margin: auto
