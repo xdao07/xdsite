@@ -3,7 +3,6 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.conf import settings
 from django.db.models import Q  # filter(~Q(name=''))过滤表示不等于
 from django.http import HttpResponse
-from datetime import datetime as dt
 from .models import Category, Tag, Article, Comment, Links
 from .cache_manager import cache_sync
 
@@ -86,5 +85,5 @@ def article_list(request, category_id=None, tag_id=None, page=1):
 def sync_hits_cache_to_db(request):
     cache_sync.syn_article_hits()
     # 返回指定字符串到客户端
-    return HttpResponse('[{0}] "Sync hits between cache and db."'.format(dt.now().strftime('%Y-%m-%d %H:%M:%S')))
+    return HttpResponse('Sync hits between cache and db.')
 
