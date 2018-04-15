@@ -5,6 +5,6 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='blog/index.html'), name='home'),
     url(r'^aboutme/$', TemplateView.as_view(template_name='blog/aboutme.html'), name='aboutme'),
     url(r'^messageme/$', TemplateView.as_view(template_name='blog/messageme.html'), name='messageme'),
-    url(r'^articlelist/$', TemplateView.as_view(template_name='blog/articlelist.html'), name='articlelist'),
+    url(r'^article_list/$', TemplateView.as_view(template_name='blog/articlelist.html'), name='article_list'),
     url(r'^article/$', TemplateView.as_view(template_name='blog/article.html'), name='article'),
 ]
