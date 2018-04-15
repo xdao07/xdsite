@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>{% block title %}{% endblock %}</title>
-<meta name="keywords" content="个人博客模板古典系列之――江南墨卷" />
-<meta name="description" content="个人博客模板古典系列之――江南墨卷" />
+<meta name="keywords" content="{{ site_keywords }}" />
+<meta name="description" content="{{ site_desc }}" />
 <link href="{% static 'blog/css/base.css' %}" rel="stylesheet">
 {% block css %}{% endblock %}
 <!--[if lt IE 9]>

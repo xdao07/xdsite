@@ -1,7 +1,7 @@
 <header>
     <div class="headtop"></div>
     <div class="contenttop">
-      <div class="logo f_l">个人博客模板古典系列之――江南墨卷</div>
+      <div class="logo f_l">{{ site_name }}</div>
       <div class="blank"></div>
       <nav>
         <div  class="navigation">
@@ -9,17 +9,23 @@
             <li><a href="{% url 'blog:home' %}">网站首页</a></li>
             <li><a href="#">技术杂谈</a>
               <ul>
-                <li><a href="{% url 'blog:article_list' %}">编程开发</a></li>
-                <li><a href="{% url 'blog:article_list' %}">数据库</a></li>
-                <li><a href="{% url 'blog:article_list' %}">Linux运维</a></li>
-                <li><a href="{% url 'blog:article_list' %}">安全</a></li>
-                <li><a href="{% url 'blog:article_list' %}">其它</a></li>
+                  {% for nav_jszt in nav_jszt_category %}
+                  <li><a href="#">{{ nav_jszt.name }}</a></li>
+                  {% endfor %}
+{#                <li><a href="{% url 'blog:article_list' %}">编程开发</a></li>#}
+{#                <li><a href="{% url 'blog:article_list' %}">数据库</a></li>#}
+{#                <li><a href="{% url 'blog:article_list' %}">Linux运维</a></li>#}
+{#                <li><a href="{% url 'blog:article_list' %}">安全</a></li>#}
+{#                <li><a href="{% url 'blog:article_list' %}">其它</a></li>#}
               </ul>
             </li>
             <li><a href="#">生活随笔</a>
               <ul>
-                <li><a href="{% url 'blog:article_list' %}">个人日记</a></li>
-                <li><a href="{% url 'blog:article_list' %}">思维导图</a></li>
+                  {% for nav_shsb in nav_shsb_category %}
+                  <li><a href="#">{{ nav_shsb.name }}</a></li>
+                  {% endfor %}
+{#                <li><a href="{% url 'blog:article_list' %}">个人日记</a></li>#}
+{#                <li><a href="{% url 'blog:article_list' %}">思维导图</a></li>#}
               </ul>
             </li>
             <li><a href="{% url 'blog:aboutme' %}">关于自己</a> </li>
