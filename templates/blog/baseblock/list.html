@@ -1,12 +1,12 @@
 {% load staticfiles %}
 {% for article in articles %}
-<h3><a href="#">【{{ article.category.name }}】{{ article.title }}</a></h3>
+<h3><a href="{{ article.get_absolute_url }}">【{{ article.category.name }}】{{ article.title }}</a></h3>
 <figure><img src="{% if article.picture %}{{ article.picture.url }}{% else %}{% static 'blog/images/img_2.jpg' %}{% endif %}" alt="【{{ article.category.name }}】{{ article.title }}"></figure>
 <ul>
 <p>{{ article.abstract }}</p>
-<a title="【{{ article.category.name }}】{{ article.title }}" href="#" class="readmore">阅读全文&gt;&gt;</a>
+<a title="【{{ article.category.name }}】{{ article.title }}" href="{{ article.get_absolute_url }}" class="readmore">阅读全文&gt;&gt;</a>
 </ul>
-<p class="dateview"><span>{{ article.publish | date:'Y-m-d' }}</span><span>阅读：9999次</span><span>分类：[<a href="#">{{ article.category.name }}</a>]</span></p>
+<p class="dateview"><span>{{ article.publish | date:'Y-m-d' }}</span><span>阅读：9999次</span><span>分类：[<a href="{% url 'blog:article_list' article.category.id %}">{{ article.category.name }}</a>]</span></p>
 {% empty %}
 <p>还没有发布文章</p>
 {% endfor %}

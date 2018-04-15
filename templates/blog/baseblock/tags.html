@@ -2,7 +2,7 @@
     <h3 class="tit">标签云</h3>
     <ul>
         {% for tag in tags %}
-        <li><a href="#">{{ tag.name }}({{ tag.article_count }})</a></li>
+        <li><a href="{% url 'blog:article_list' 'tag' tag.id %}">{{ tag.name }}({{ tag.article_count }})</a></li>
         {% endfor %}
 {#        <li><a href="{% url 'blog:article_list' %}">Python(1)</a></li>#}
 {#        <li><a href="{% url 'blog:article_list' %}">Mysql(5)</a></li>#}

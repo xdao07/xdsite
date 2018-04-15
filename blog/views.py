@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.conf import settings
 from django.db.models import Q  # filter(~Q(name=''))过滤表示不等于
 from .models import Category, Tag, Article, Comment, Links
@@ -43,4 +44,34 @@ def index(request):
 
     return render(request, 'blog/index.html', locals())
 
+# 文章详情页视图
+def article_detail(request, id, slug):
+    # 返回匹配id和slug的文章对象，否则的404错误
+    article = get_object_or_404(Article, id=id, slug=slug)
 
+    return render(request, 'blog/article.html', locals())
+
+# 文章列表页视图
+def article_list(request, category_id=None, tag_id=None, page=1):
+    # 从配置文件中获取每页显示文章数
+    per_page = settings.PER_PAGE
+    # 根据url中匹配的值，判断是文章类目列表还是标签文章列表
+    if category_id:
+        category = get_object_or_404(Category, id=category_id)
+        articles_list = Article.objects.filter(category_id=category_id)
+    else:
+        tag = get_object_or_404(Tag, id=tag_id)
+        articles_list = tag.article.all()
+
+    # 实例化分页对象
+    paginator = Paginator(articles_list, per_page)
+    try:
+        current_page = paginator.page(page)
+    except PageNotAnInteger:
+        current_page = paginator.page(1)
+    except EmptyPage:
+        current_page = paginator.page(paginator.num_pages)
+    # 当前页（某一页/第一页/最后一页）的所有文章记录对象
+    articles = current_page.object_list
+
+    return render(request, 'blog/articlelist.html', locals())

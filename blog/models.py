@@ -61,6 +61,10 @@ class Article(models.Model):
         self.slug = slugify(self.title)    # 转标题转换为链接标题格式，如"我的博客"转换为"wo-de-bo-ke"
         super(Article, self).save(*args, **kwargs)
 
+    # 获取文章详情链接URL
+    def get_absolute_url(self):
+        return reverse('blog:article_detail', args=[self.id, self.slug])    # reverse()函数通过url别名返回对应的url路径
+
     def __str__(self):
         return "【{0}】 {1}".format(self.category.name, self.title)
 

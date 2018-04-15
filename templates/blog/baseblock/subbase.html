@@ -10,7 +10,14 @@
   <div class="container">
     <div class="con_content">
       <div class="about_box">
-        <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">网络安全</a></span><b>网络安全</b></h2>
+        {% if tag %}
+        <h2 class="nh1"><span>您现在的位置是：<a href="/">网站首页</a>>><a href="{% url 'blog:article_list' 'tag' tag.id %}">【{{ tag.name }}】</a></span><b>【{{ tag.name }}】</b></h2>
+        {% elif category %}
+        <h2 class="nh1"><span>您现在的位置是：<a href="/">网站首页</a>>><a href="{% url 'blog:article_list' category.id %}">{{ category.name }}</a></span><b>{{ category.name }}</b></h2>
+        {% else %}
+        <h2 class="nh1"><span>您现在的位置是：<a href="/">网站首页</a>>><a href="{% url 'blog:article_list' article.category_id %}">{{ article.category.name }}</a></span><b>{{ article.category.name }}</b></h2>
+        {% endif %}
+{#        <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">信息浏览</a></span><b>个人简介</b></h2>#}
         {% block content_box %}{% endblock %}
       </div>
     </div>
