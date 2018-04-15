@@ -6,7 +6,7 @@
 <p>{{ article.abstract }}</p>
 <a title="【{{ article.category.name }}】{{ article.title }}" href="{{ article.get_absolute_url }}" class="readmore">阅读全文&gt;&gt;</a>
 </ul>
-<p class="dateview"><span>{{ article.publish | date:'Y-m-d' }}</span><span>阅读：9999次</span><span>分类：[<a href="{% url 'blog:article_list' article.category.id %}">{{ article.category.name }}</a>]</span></p>
+<p class="dateview"><span>{{ article.publish | date:'Y-m-d' }}</span><span>阅读：{{ article.get_hits }}次</span><span>分类：[<a href="{% url 'blog:article_list' article.category.id %}">{{ article.category.name }}</a>]</span></p>
 {% empty %}
 <p>还没有发布文章</p>
 {% endfor %}

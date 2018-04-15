@@ -1,6 +1,7 @@
 from django.db import models
 from slugify import slugify
 from django.shortcuts import reverse
+from .cache_manager import get__article_hits, update_article_hits
 
 # Create your models here.
 
@@ -64,6 +65,14 @@ class Article(models.Model):
     # 获取文章详情链接URL
     def get_absolute_url(self):
         return reverse('blog:article_detail', args=[self.id, self.slug])    # reverse()函数通过url别名返回对应的url路径
+
+    # 更新缓存中的文章点击次数
+    def update_hits(self):
+        update_article_hits(self)
+
+    # 从缓存获取文章点击次数
+    def get_hits(self):
+        return get__article_hits(self)
 
     def __str__(self):
         return "【{0}】 {1}".format(self.category.name, self.title)

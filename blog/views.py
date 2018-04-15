@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.conf import settings
 from django.db.models import Q  # filter(~Q(name=''))过滤表示不等于
+from django.http import HttpResponse
 from .models import Category, Tag, Article, Comment, Links
+from .cache_manager import cache_sync
 
 def global_setting(request):
     """
@@ -48,11 +50,15 @@ def index(request):
 def article_detail(request, id, slug):
     # 返回匹配id和slug的文章对象，否则的404错误
     article = get_object_or_404(Article, id=id, slug=slug)
-
+    # 更新当前文章点击次数
+    article.update_hits()
     return render(request, 'blog/article.html', locals())
 
 # 文章列表页视图
 def article_list(request, category_id=None, tag_id=None, page=1):
+    # 同步缓存和数据库中的文章点击次数
+    cache_sync.syn_article_hits()
+
     # 从配置文件中获取每页显示文章数
     per_page = settings.PER_PAGE
     # 根据url中匹配的值，判断是文章类目列表还是标签文章列表
@@ -75,3 +81,9 @@ def article_list(request, category_id=None, tag_id=None, page=1):
     articles = current_page.object_list
 
     return render(request, 'blog/articlelist.html', locals())
+
+# 同步缓存和数据库中的文章点击次数
+def sync_hits_cache_to_db(request):
+    cache_sync.syn_article_hits()
+    # 返回指定字符串到客户端
+    return HttpResponse('Sync hits between cache and db.')
