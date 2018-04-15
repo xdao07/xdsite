@@ -13,10 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views import static
+from blog.uploads import upload_image
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('blog.urls', namespace='blog', app_name='blog')),
+    url(r'^uploads/(?P<path>.*)$', static.serve, {"document_root": settings.MEDIA_ROOT}),
+    url(r'^admin/upload/(?P<dir_name>[^/]+)$', upload_image, name='upload_image'),  # 匹配的路径以参数dir_name传递给upload_image函数
 ]
