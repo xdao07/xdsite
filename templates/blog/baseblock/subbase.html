@@ -17,7 +17,6 @@
         {% else %}
         <h2 class="nh1"><span>您现在的位置是：<a href="/">网站首页</a>>><a href="{% url 'blog:article_list' article.category_id %}">{{ article.category.name }}</a></span><b>{{ article.category.name }}</b></h2>
         {% endif %}
-{#        <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">信息浏览</a></span><b>个人简介</b></h2>#}
         {% block content_box %}{% endblock %}
       </div>
     </div>
