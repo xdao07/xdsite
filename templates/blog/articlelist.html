@@ -1,12 +1,43 @@
 {% extends "blog/baseblock/subbase.html" %}
 {% load staticfiles %}
-
-{% block title %}【{{ category.name }}】文章列表{% endblock %}
+{% block title %}
+    {% if tag %}
+    【{{ tag.name }}】文章列表
+    {% else %}
+    【{{ category.name }}】文章列表
+    {% endif %}
+{% endblock %}
 
 {% block content_box %}
     <div class="bloglist f_l">
       {% include "blog/baseblock/list.html" %}
-      {% include "blog/baseblock/paginator.html" %}
+      <div class="blank"></div>
+{#        文章列表分为文章类目文章列表和文章标签文章列表，因此针对这两种情况判断指定不同的分页#}
+        {% if tag %}
+        <div class="pagelist">
+            页次：{{ current_page.number }}/{{ current_page.paginator.num_pages }}&nbsp;
+            每页:{{ per_page }}&nbsp;总数:{{ current_page.paginator.count }}&nbsp;<a href="{% url 'blog:article_list' 'tag' tag.id 1 %}">首页</a>
+            {% if current_page.has_previous %}
+            <a href="{% url 'blog:article_list' 'tag' tag.id current_page.previous_page_number %}">上一页</a>
+            {% endif %}
+            {% if current_page.has_next %}
+            <a href="{% url 'blog:article_list' 'tag' tag.id current_page.next_page_number %}">下一页</a>
+            {% endif %}
+            <a href="{% url 'blog:article_list' 'tag' tag.id current_page.paginator.num_pages %}">尾页</a>
+        </div>
+        {% else %}
+        <div class="pagelist">
+            页次：{{ current_page.number }}/{{ current_page.paginator.num_pages }}&nbsp;
+            每页：{{ per_page }}&nbsp;总数：{{ current_page.paginator.count }}&nbsp;<a href="{% url 'blog:article_list' category.id 1 %}">首页</a>
+            {% if current_page.has_previous %}
+            <a href="{% url 'blog:article_list' category.id current_page.previous_page_number %}">上一页</a>
+            {% endif %}
+            {% if current_page.has_next %}
+            <a href="{% url 'blog:article_list' category.id current_page.next_page_number %}">下一页</a>
+            {% endif %}
+            <a href="{% url 'blog:article_list' category.id current_page.paginator.num_pages %}">尾页</a>
+        </div>
+        {% endif %}
     </div>
     <div class="r_box f_r">
       {% include "blog/baseblock/photorecommend.html" %}

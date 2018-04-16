@@ -2,7 +2,7 @@
     <h3 class="tit">友情链接</h3>
     <ul>
         {% for link in links %}
-        <li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>
+        <li><a title="{{ link.description }}" href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>
         {% endfor %}
 {#        <li><a>Python开发</a></li>#}
 {#        <li><a>数据库之mysql</a></li>#}

@@ -1,6 +1,6 @@
 {% extends "blog/baseblock/base.html" %}
 {% load staticfiles %}
-{% block title %}我的博客{% endblock %}
+{% block title %}{{ site_name }}{% endblock %}
 
 {% block css %}
   <link rel="stylesheet" href="{% static 'blog/css/index.css' %}">
@@ -14,7 +14,7 @@
       {% include "blog/baseblock/list.html" %}
     </div>
     <div class="r_box f_r">
-      {% include "blog/baseblock/attention.html" %}
+      {% include "blog/baseblock/Attention.html" %}
       {% include "blog/baseblock/photorecommend.html" %}
       {% include "blog/baseblock/hitsort.html" %}
       {% include "blog/baseblock/tags.html" %}

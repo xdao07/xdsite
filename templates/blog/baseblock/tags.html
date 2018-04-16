@@ -4,12 +4,12 @@
         {% for tag in tags %}
         <li><a href="{% url 'blog:article_list' 'tag' tag.id %}">{{ tag.name }}({{ tag.article_count }})</a></li>
         {% endfor %}
-{#        <li><a>Python(1)</a></li>#}
-{#        <li><a>Mysql(5)</a></li>#}
-{#        <li><a>Php(2)</a></li>#}
-{#        <li><a>这是一个标签(6)</a></li>#}
-{#        <li><a>标签(9)</a></li>#}
-{#        <li><a>测试标签(3)</a></li>#}
-{#        <li><a>短标(11)</a></li>#}
+{#        <li><a href="{% url 'blog:article_list' %}">Python(1)</a></li>#}
+{#        <li><a href="{% url 'blog:article_list' %}">Mysql(5)</a></li>#}
+{#        <li><a href="{% url 'blog:article_list' %}">Php(2)</a></li>#}
+{#        <li><a href="{% url 'blog:article_list' %}">这是一个标签(6)</a></li>#}
+{#        <li><a href="{% url 'blog:article_list' %}">标签(9)</a></li>#}
+{#        <li><a href="{% url 'blog:article_list' %}">测试标签(3)</a></li>#}
+{#        <li><a href="{% url 'blog:article_list' %}">短标(11)</a></li>#}
     </ul>
 </div>

@@ -15,7 +15,8 @@
 	padding: 20px
 }
 .about_content p {
-	margin-bottom: 15px;
+	/*margin-bottom: 15px;*/
+	margin-bottom: 10px;
 	/*text-indent: 2em*/
 	/*文章详情页内容缩进2字符，比syntaxhighlighter的css位置效果多余*/
 }

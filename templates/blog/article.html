@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}{{ article.title }}{% endblock %}
+
 {% block css %}
     {{ block.super }} {#获取父模板的内容#}
     <link type="text/css" rel="stylesheet" href="{% static 'syntaxheighlighter/styles/shCore.css' %}"/>

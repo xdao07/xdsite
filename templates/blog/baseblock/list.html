@@ -6,10 +6,12 @@
 <p>{{ article.abstract }}</p>
 <a title="【{{ article.category.name }}】{{ article.title }}" href="{{ article.get_absolute_url }}" class="readmore">阅读全文&gt;&gt;</a>
 </ul>
-<p class="dateview"><span>{{ article.publish | date:'Y-m-d' }}</span><span>阅读：{{ article.get_hits }}次</span><span>个人博客：[<a href="{% url 'blog:article_list' article.category.id %}">{{ article.category.name }}</a>]</span></p>
+<p class="dateview"><span>{{ article.publish | date:'Y-m-d' }}</span><span>阅读：{{ article.get_hits }}次</span><span>分类：[<a href="{% url 'blog:article_list' article.category.id %}">{{ article.category.name }}</a>]</span></p>
 {% empty %}
 <p>还没有发布文章</p>
 {% endfor %}
+
+{#{% load staticfiles %}#}
 {#<h3><a href="/jstt/bj/2017-07-13/784.html">【心路历程】请不要在设计这条路上徘徊啦</a></h3>#}
 {#<figure><img src="{% static 'blog/images/img_1.jpg' %}" alt="【心路历程】请不要在设计这条路上徘徊啦"></figure>#}
 {#<ul>#}

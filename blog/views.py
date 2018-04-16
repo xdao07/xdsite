@@ -31,6 +31,7 @@ def global_setting(request):
 
     # settings中站点基本信息配置
     site_name = settings.SITE_NAME
+    site_http = settings.SITE_HTTP
     site_keywords = settings.SITE_KEYWORDS
     site_desc = settings.SITE_DESC
     site_beian = settings.SITE_BEIAN
@@ -86,4 +87,3 @@ def sync_hits_cache_to_db(request):
     cache_sync.syn_article_hits()
     # 返回指定字符串到客户端
     return HttpResponse('Sync hits between cache and db.')
-

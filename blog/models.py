@@ -2,6 +2,7 @@ from django.db import models
 from slugify import slugify
 from django.shortcuts import reverse
 from .cache_manager import get__article_hits, update_article_hits
+
 # Create your models here.
 
 # 文件上传路径(/MEDIA_ROOT/article_picture/文章id/文件名)
