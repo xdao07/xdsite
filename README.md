@@ -6,11 +6,11 @@
 #### 1.2 Mysql
 #### 1.3 Redis
 ### 2、获取项目
-git clone https://github.com/xdao07/xdsite.git
+git clone --branch 1.0.0-clean https://github.com/xdao07/xdsite.git
 
 或者
 
-https://github.com/xdao07/xdsite/archive/master.zip
+https://github.com/xdao07/xdsite/archive/1.0.0-clean.zip
 ### 3、安装项目requirements.txt
 pip install -r xdsite/requirements.txt
 ### 4、创建项目数据库
