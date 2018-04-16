@@ -1,10 +1,10 @@
 # xdsite
 使用Django 框架开发的个人博客项目
 
-====
+=
 # 项目介绍
 
-====
+=
 
 ### 1、环境
 #### 1.1 python3
@@ -12,9 +12,9 @@
 #### 1.3 Redis
 
 ### 2、获取项目
-        git clone https://github.com/xdao07/xdsite.git
-        或者
-        https://github.com/xdao07/xdsite/archive/master.zip
+    git clone https://github.com/xdao07/xdsite.git
+    或者
+    https://github.com/xdao07/xdsite/archive/master.zip
 
 ### 3、安装项目requirements.txt
         pip install -r xdsite/requirements.txt
