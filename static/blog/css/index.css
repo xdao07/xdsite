@@ -117,6 +117,9 @@ a.readmore {
 .gzwm .prize {
 	background: url(../images/gz04.png) no-repeat;
 }
+.gzwm .github {
+	background: url(../images/gz05.png) no-repeat;
+}
 .gzwm li a:hover {
 	opacity: 0.6;
 }
